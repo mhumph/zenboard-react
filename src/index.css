@@ -1,0 +1,16 @@
+html {
+  /**
+   * Copied from Bootstrap's normalize.css: Prevent iOS and IE text size 
+   * adjust after device orientation change, without disabling user zoom.
+   */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+body {
+  margin: 0;
+}
+#app {
+  width: 100%;
+}
