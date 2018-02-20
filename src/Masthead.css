@@ -1,0 +1,45 @@
+.zbr-heading {
+  background-color: black;
+  color: white;
+  font-size: 26px;
+  padding: 5px 8px 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0px 0 15px;
+  cursor: pointer;
+}
+.zbr-nav {
+  display: inline;
+  position: relative;
+  top: -14px;
+}
+
+/** Tweak heading for mobile, to avoid nav buttons breaking onto two lines */
+@media (max-width: 400px) {
+  .zbr-heading {
+    font-size: 22px;
+  }
+  .zbr-nav {
+    top: -10px;
+  }
+}
+
+.zbr-nav ul {
+  display: inline;
+  padding: 0;
+}
+li.zbr-nav-item {
+  display: inline;
+}
+.zbr-nav-item {
+  background-color: #BBB;
+  padding: 4px 5px 4px 4px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: 3px;
+  border-radius: 2px;
+  color: #000;
+}
+.zbr-nav-item:hover {
+  background-color: #AAA;
+}

@@ -1,0 +1,49 @@
+/** Zenboard row */
+
+.zbr-row th {
+  text-align: left;
+  font-weight: normal;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-bottom: 10px;
+}
+
+.zro-title-container {
+  margin: 7px 3px 2px;
+}
+
+.zro-title {
+  margin-top: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.zro-button {
+  font-weight: normal;
+  font-size: 13px;
+  background-color: #BBB;
+  color: #000;
+  padding: 4px 5px 4px 4px;
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.zro-button:hover {
+  background-color: #AAA;
+}
+.zro-button-placeholder {
+  visibility: hidden;
+}
+
+/** TRANSITIONS *************************************************************/
+
+.zro-fade-enter-active {
+  transition: opacity .1s
+}
+.zro-fade-leave-active {
+  transition: opacity .4s
+}
+.zro-fade-enter, .zro-fade-leave-to {
+  opacity: 0
+}

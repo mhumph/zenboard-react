@@ -1,0 +1,27 @@
+.zbr-card {
+  background-color: #FFF;
+  padding: 4px 4px 4px 5px;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #000;
+}
+.zbr-card:hover {
+  background-color: #EEE;
+  /* Pointer icon is relevant to click (for details) and move. "Move" icon is only relevant to move. */
+  cursor: pointer;
+}
+
+/* Ghost class used by Vue.Draggable */
+.zca-ghost {
+  opacity: .2;
+}
+
+.zca-urgent {
+  background-color: #ff3860 !important;
+  color: #FFF;
+}
+.zca-urgent:hover {
+  color: #ffe9ed !important; /* Alternate value: #e9002f */
+}
