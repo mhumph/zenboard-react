@@ -1,37 +1,47 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
-
-const SortableItem = SortableElement(Card);
-
-const SortableList = SortableContainer(({cards}) => (
-  <td>
-    {cards.map(({card}, index) => (
-      <SortableItem key={`item-${card.id}`} index={index} card={card} />
-    ))}
-  </td>
-));
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 class Cell extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: props.cell.cards.map((card) => {
-        return {
-          card: card
-        };
-      })
+      cards: props.cell.cards
     };
   }
-  onSortEnd = ({oldIndex, newIndex}) => {
-    let {cards} = this.state;
 
-    this.setState({
-      cards: arrayMove(cards, oldIndex, newIndex)
-    });
-  };
   render() {
-    return <SortableList cards={this.state.cards} onSortEnd={this.onSortEnd} />;
+    const droppableId = 'droppableCell-' + this.props.rowId + '-' + this.props.cell.colId;
+    return (
+      <td>
+        <Droppable droppableId={droppableId} type="CARD">
+          {(provided, snapshot) => (
+            
+            <div
+              ref={provided.innerRef}
+            >
+              {this.state.cards.map((card, index) => (
+                <Draggable key={card.id} draggableId={card.id} index={index} type="CARD">
+                  {(provided, snapshot) => (
+                    <div>
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        {card.title}
+                      </div>
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </td>
+    );
   }
 }
 

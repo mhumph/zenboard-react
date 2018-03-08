@@ -8,13 +8,17 @@ const reducer = function(accumulator, card) {
 
 class Row extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const cells = this.props.row.cells.map((cell, i) => {
       let hash = '' + i + ':';
       if (cell.cards.length > 0) {
         hash = cell.cards.reduce(reducer, hash);
       }
-      return <Cell cell={cell} key={hash} rowId={cell.rowId} />
+      return <Cell cell={cell} key={hash} rowId={this.props.row.id} />
     })
     console.log('Row.render()', this.props.row)
     return (

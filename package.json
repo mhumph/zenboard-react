@@ -5,6 +5,7 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "react": "^16.2.0",
+    "react-beautiful-dnd": "5.x",
     "react-dom": "^16.2.0",
     "react-draggable": "^3.0.5",
     "react-draggable-list": "^3.4.1",
