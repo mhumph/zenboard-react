@@ -4,6 +4,12 @@ This is a work in progress of porting [Zenboard](https://github.com/mhumph/zenbo
 
 Zenboard's UI has complex drag and drop - Vue makes this easy and i'm curious to learn how to do complex drag and drop in React.
 
+## TODO
+
+- Edit card modal
+- Add card / draft card
+- Only show "Add card" button when relevant
+
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

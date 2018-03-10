@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import './Cell.css';
 
 class Cell extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Cell extends Component {
         <Droppable droppableId={droppableId} type="CARD">
           {(provided, snapshot) => (
             
-            <div
+            <div class="zbr-droppable"
               ref={provided.innerRef}
             >
               {this.state.cards.map((card, index) => (
@@ -29,7 +30,7 @@ class Cell extends Component {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
-                        {card.title}
+                        <Card card={card} />
                       </div>
                       {provided.placeholder}
                     </div>

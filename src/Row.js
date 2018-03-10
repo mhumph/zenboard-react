@@ -8,10 +8,6 @@ const reducer = function(accumulator, card) {
 
 class Row extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const cells = this.props.row.cells.map((cell, i) => {
       let hash = '' + i + ':';
