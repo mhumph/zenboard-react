@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Board.css';
 import Masthead from './Masthead';
 import Row from './Row';
+import CardEditor from './modals/CardEditor';
 import { onBoardRefresh } from './services/serverEvents';
 import { DragDropContext } from 'react-beautiful-dnd';
 const BoardUpdater = require('./lib/BoardUpdater');
@@ -13,6 +14,7 @@ class Board extends Component {
       rows: []
     };
     this.onDragEnd = this.onDragEnd.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   onDragStart = () => {
@@ -32,10 +34,10 @@ class Board extends Component {
       const position = result.destination.index;
 
       let payload = {
-        id: parseInt(cardId),     // cardId
-        rowId: parseInt(rowId),   // toRowId
-        colId: parseInt(colId),   // toColId
-        position: parseInt(position) + 1    // toPosition
+        id: parseInt(cardId, 10),     // cardId
+        rowId: parseInt(rowId, 10),   // toRowId
+        colId: parseInt(colId, 10),   // toColId
+        position: parseInt(position, 10) + 1    // toPosition
       }
       const boardUpdater = new BoardUpdater(this.state.rows, cardId);
       const updatedRows = boardUpdater.updateLocalRows(payload);
@@ -94,15 +96,13 @@ class Board extends Component {
     })
   }
 
-  
-
   render() {
     console.log('Rendering!');
     const rows = this.state.rows.map((row) =>
       <Row row={row} key={row.id} />
     );
     return (
-      <div className="zbr-container">
+      <div className="zbr-container" onKeyPress={this.handleKeyPress}>
         <Masthead />
 
         <DragDropContext onDragEnd={this.onDragEnd} onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate }>
@@ -127,8 +127,17 @@ class Board extends Component {
             </tbody>
           </table>
         </DragDropContext>
+
+        <CardEditor />
       </div>
     );
+  }
+
+  handleKeyPress(event) {
+    console.log('Board:handleKeyPress', event);
+    if (event.key === 'Escape'){
+      console.log('Escape pressed!');
+    }
   }
 }
 

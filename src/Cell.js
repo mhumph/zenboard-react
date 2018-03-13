@@ -18,7 +18,7 @@ class Cell extends Component {
         <Droppable droppableId={droppableId} type="CARD">
           {(provided, snapshot) => (
             
-            <div class="zbr-droppable"
+            <div className="zbr-droppable"
               ref={provided.innerRef}
             >
               {this.state.cards.map((card, index) => (
