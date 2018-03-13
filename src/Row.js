@@ -24,7 +24,6 @@ class Row extends Component {
             <div className="zro-title">{this.props.row.title}</div>
           </div>
           <div v-if="hover" className="zro-button">+&nbsp;Add&nbsp;card</div>
-          {/* <div v-if="!hover" class="zro-button zro-button-placeholder">+&nbsp;Add&nbsp;card</div> */}
         </th>
 
         {cells}
